@@ -1,0 +1,41 @@
+/* ==========================================================================
+   HOME — hero, video placeholders, "What would you like to know?" menu rows
+   ========================================================================== */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:calc(var(--nav) + 2rem) 0 4rem}
+.status{display:inline-flex;align-items:center;gap:.6rem;margin-bottom:1.6rem}
+.status .dot,.pulse{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 0 var(--acc);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.hero h1{font-size:clamp(3.4rem,12vw,11rem);line-height:.9;max-width:12ch}
+.hero .sub{font:italic clamp(1.4rem,3vw,2.4rem) var(--serif);color:var(--mute);margin:1.6rem 0 2.4rem}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-meta{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+.hero-meta a:hover{color:var(--acc)}
+
+/* Video placeholder (swap the inner .ph for <video> or <iframe>) */
+.video{padding:5rem 0}
+.frame{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--bg2)}
+.frame-bar{display:flex;gap:.45rem;padding:.8rem 1rem;border-bottom:1px solid var(--line)}
+.frame-bar span{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.ph{aspect-ratio:16/9;display:grid;place-content:center;justify-items:center;gap:1rem;
+  background:repeating-linear-gradient(45deg,transparent 0 14px,rgba(244,243,239,.03) 14px 15px)}
+.ph .play{width:84px;height:84px;border-radius:50%;border:1px solid var(--ink);display:grid;place-items:center;transition:background .3s,color .3s,transform .4s var(--ease)}
+.ph .play::before{content:"";border-left:18px solid currentColor;border-block:11px solid transparent;margin-left:5px}
+.frame:hover .play{background:var(--acc);color:#000;border-color:var(--acc);transform:scale(1.08)}
+
+/* Menu rows */
+.know{padding:6rem 0}
+.know h2{font-size:clamp(2.6rem,8vw,7rem);margin:1rem 0 1.5rem}
+.rows{margin-top:4rem;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:4rem 1fr auto;align-items:center;gap:1rem;padding:2rem 0;border-bottom:1px solid var(--line);position:relative;transition:padding .4s var(--ease),background .3s,color .3s}
+.row h3{font-size:clamp(1.9rem,5vw,4rem)}
+.row p{color:var(--mute);margin-top:.5rem;max-width:52ch;font-size:.95rem}
+.row .arrow{font-size:2rem;color:var(--acc);transition:transform .4s var(--ease)}
+a.row:hover{padding-inline:1.5rem;background:var(--ink);color:var(--bg)}
+a.row:hover p,a.row:hover .mono{color:#555}
+a.row:hover .arrow{transform:translateX(8px) rotate(-45deg);color:var(--bg)}
+.row.is-soon{opacity:.55}
+.row.is-soon .arrow{font:500 .7rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);padding:.35rem .7rem;border-radius:99px}
+@media(max-width:600px){.row{grid-template-columns:2.5rem 1fr auto}}
+
+.thanks{padding:6rem 0 2rem;text-align:center}
+.thanks h2{font-size:clamp(3rem,11vw,9rem)}
